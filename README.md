@@ -104,6 +104,27 @@ RAxML produces several files:
 2. `RAxML_bootstrap.Exo70_tree`: Contains all bootstrap trees.
 3. `RAxML_bipartitions.Exo70_tree`: Final tree with bootstrap values.
 
+## Step 5: Node Label Extraction and Renaming
+
+To work with the phylogenetic tree structure and label nodes, we used custom Python scripts from the QKphylogeny package.
+
+### 5.1 Cloning QKphylogeny Repository
+
+Download QKphylogeny from GitHub to access the scripts:
+
+```
+git clone https://github.com/gurmindersingh12/QKphylogeny.git
+```
+
+### 5.2 Extract Node Labels
+
+The QKphylogeny_nodelabels.py script extracts node labels from the RAxML tree file in Newick format.
+```
+python QKphylogeny/QKphylogeny_nodelabels.py -t RAxML_bestTree.Exo70_tree -o node_labels.txt
+```
+
+
+
 
 
 
