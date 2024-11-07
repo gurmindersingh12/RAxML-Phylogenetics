@@ -123,8 +123,46 @@ The QKphylogeny_nodelabels.py script extracts node labels from the RAxML tree fi
 python QKphylogeny/QKphylogeny_nodelabels.py -t RAxML_bestTree.Exo70_tree -o node_labels.txt
 ```
 
+#### Modifications in QKphylogeny_nodelabels.py for Python 3 Compatibility: The original script used outdated syntax from Python 2. We made the following changes:
+
+1. Changed `string.replace(line, '\n', '')` to `line.replace('\n', '')`.
+2. Changed `string.split(line)` to `line.split()`.
+3. Changed `string.replace(tree, '(', '')` to `tree.replace('(', '')`.
+4. Changed `string.split(node, ':')[0]` to `node.split(':')[0]`.
+
+These modifications were necessary for the script to run in Python 3.
 
 
+### 5.3 Rename Nodes (Optional)
+
+If you need to rename nodes based on a specific format or abbreviation, create a translation table (translation_table.txt) with two columns:
+
+1. Original name
+2. New name
+
+Then use the renaming script:
+```
+python QKphylogeny/QKphylogeny_rename_nodes.py -t RAxML_bestTree.Exo70_tree -l translation_table.txt -o renamed_tree.newick
+```
+
+## Step 6: Alignment Quality Assessment (Optional)
+To improve alignment quality, filter out poorly aligned positions using `QKphylogeny_alignment_analysis.py`. Set a threshold for data completeness, such as allowing a maximum of 20% missing data:
+
+```
+python QKphylogeny/QKphylogeny_alignment_analysis.py -a Exo70_aligned.aln -d 0.2 -t protein -o Exo70_aligned_filtered.aln
+```
+
+#### Explanation:
+
+1. `-a Exo70_aligned.aln`: Input alignment file.
+2. `-d 0.2`: Removes columns where more than 20% of data is missing.
+3. `-t protein`: Specifies the sequence type as protein.
+4. `-o Exo70_aligned_filtered.aln`: Outputs the filtered alignment.
+
+
+## Step 7: Visualization and Interpretation
+
+To visualize the final phylogenetic tree, you can upload the Newick tree file (e.g., `RAxML_bestTree.Exo70_tree` or `renamed_tree.newick`) to iTOL (https://itol.embl.de/). iTOL provides interactive options to customize, annotate, and download high-quality phylogenetic trees.
 
 
 
