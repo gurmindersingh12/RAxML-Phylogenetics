@@ -1,3 +1,6 @@
+##Updated QKphylogeny_nodelabels.py for Python 3 compatibility
+##Original Author: Matthew Moscou <matthew.moscou@tsl.ac.uk>
+
 #! /usr/bin/env python
 # -*- coding: UTF-8 -*-
 
