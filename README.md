@@ -86,12 +86,24 @@ raxmlHPC -f a -x 12345 -p 12345 -# 100 -m PROTGAMMAJTT -s Exo70_aligned.aln -n E
 
 1. `-f a`: Conducts a rapid bootstrap analysis and a search for the best-scoring tree.
 2. `-x 12345`: Random seed for bootstrapping.
-    -p 12345: Random seed for parsimony starting tree.
-    -# 100: Number of bootstrap replicates to assess tree stability.
-    -m PROTGAMMAJTT: Specifies the evolutionary model (PROTGAMMAJTT for protein data).
-    -s Exo70_aligned.aln: Specifies the input alignment file.
-    -n Exo70_tree: Names the output files.
-    -T 32: Uses 32 threads for faster computation.
+3. `-p 12345`: Random seed for parsimony starting tree.
+4. `-# 100`: Number of bootstrap replicates to assess tree stability.
+5. `-m PROTGAMMAJTT`: Specifies the evolutionary model (PROTGAMMAJTT for protein data).
+6. `-s Exo70_aligned.aln`: Specifies the input alignment file.
+7. `-n Exo70_tree`: Names the output files.
+8. `-T 32`: Uses 32 threads for faster computation.
+
+<b>Note:</b> Use `-m GTRGAMMA`: Sets the evolutionary model to GTRGAMMA, if using nucleotide data. This model:
+For nucleotide data, use GTRGAMMA as shown above instead of PROTGAMMAJTT, which is specific to protein data.
+
+
+### 4.2 Output Files
+
+RAxML produces several files:
+1. `RAxML_bestTree.Exo70_tree`: Best-scoring maximum likelihood tree.
+2. `RAxML_bootstrap.Exo70_tree`: Contains all bootstrap trees.
+3. `RAxML_bipartitions.Exo70_tree`: Final tree with bootstrap values.
+
 
 
 
